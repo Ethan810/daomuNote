@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale = 1,user-scalable=no" />
+		<title>盗墓笔记，在手机端观看</title>
+		<script type="text/javascript" src="js/jquery-1.11.1.js" ></script>
+		<script>
+			var DesW = 640;
+			var DesH  = 1040;
+			var scale = (document.documentElement.clientHeight)/DesH;
+			//等高布局
+			$("meta[name=viewport]").attr('content',"width=device-width,initial-scale ="+scale+",user-scalable=no");
+		</script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				width :100%;
+				height: 100%;
+				overflow: hidden;
+			}
+			#loading{
+				width: 100%;
+				height: 100%;
+				background: black;
+				position: relative;
+			}
+			#loading div{
+				width: 100%;
+				line-height: 50px;
+				color: white;
+				font-size: 30px;
+				position: absolute;
+				top: 50%;
+				margin-top: -50px;
+				left: 0;
+				text-align: center;
+			}
+			#firstCanvas{
+				z-index: 100;
+			}
+			canvas{
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div id="loading">
+			<div>
+				<p id="percentage">0%</p>
+				<p>正在下载 盗墓笔记全篇</p>
+			</div>
+		</div>
+		<canvas id="firstCanvas"></canvas>
+		<canvas id="faceCanvas"></canvas>
+		
+		<audio id="faceSound" src="sounds/face.mp3"></audio>
+		<audio id="gohomeSound" src="sounds/gohome.mp3" loop="loop"></audio>
+		<audio id="bgSound" src="sounds/bgm.mp3" loop></audio>
+		<script type="text/javascript" src="js/main.js" ></script>
+	</body>
+</html>
